@@ -7,12 +7,10 @@ sequence = sequence[1:-1].split(', ')
 
 print(count_blocks(move_along_sequence(sequence)))
 
-visited = []
+visited = set()
 for step in move_by_step(sequence):
-    print(step, visited)
     if step not in visited:
-        print('added {}'.format(step))
-        visited += [step.copy()]
+        visited.add(step)
     else:
-        print(count_blocks(step.copy()))
+        print(count_blocks(step))
         break
