@@ -56,9 +56,22 @@ def move_urdl(ch, current=(0,0)):
     elif ch is 'L':
         return current[0], current[1] - 1
 
-def translate_to_numpad(coord):
-    if coord[0] in range(-1,2) and coord[1] in range(-1, 2):
-        return (3  - 3*coord[0])  + (coord[1] + 2)
+def translate_to_numpad(coord, default=True):
+    if default:
+        if coord[0] in range(-1,2) and coord[1] in range(-1, 2):
+            return (3  - 3*coord[0])  + (coord[1] + 2)
+        else:
+            return None
     else:
-        return None
-
+        if coord[0] is 2 and coord[1] is 2:
+            return 1
+        elif coord[0] is 1 and coord[1] in range(1, 4):
+            return coord[1] + 1
+        elif coord[0] is 0 and coord[1] in range(5):
+            return coord[1] + 5
+        elif coord[0] is -1 and coord[1] in range(1,4):
+            return chr(64 + coord[1])
+        elif coord[0] is -2 and coord[1] is 2:
+            return 'D'
+        else:
+            return None
