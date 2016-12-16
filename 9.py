@@ -1,6 +1,6 @@
 import re
 
-seq = open('9.in.test').read().split('\n')[0]
+seq = open('9.in').read().split('\n')[0]
 
 
 def decompress(seq):
@@ -30,38 +30,29 @@ def decompress(seq):
 print(len(decompress(seq)))
 
 
-# ну ета карочи наша модная функция, рекурсивная, да
-# e - это длина подстроки, которая будет повторяться
 def get_len(seq, e, i=0, result=0):
-    # вначале маркер пустой, т.к. входные данные с него не начинаются никогда
+    # print(seq[i:e], " ", result)
     marker = ''
-    while i < e:  # пока не дошли до конца входных данных
-        # если символы вне модификатора, например, в начале
+    while i < e:
         if seq[i] not in '()':
             if not marker:
                 result += 1
             else:
                 marker += seq[i]
-        elif seq[i] == '(':  # начался маркер
+        elif seq[i] == '(':
             marker += seq[i]
-        elif seq[i] == ')':  # закончился маркер
+        elif seq[i] == ')':
             marker += seq[i]
             match = re.findall(r'\((\d+)x(\d+)\)', marker)
-            if len(match):  # если мы в распаршенной хуйне нашли таки маркер
+            if len(match):
                 l, t = match[0]
                 l, t = int(l), int(t)
-                # ЕБАТЬ РЕКУРСИЯ
-                # ну ебать карочи считаем сколько там символов в этой хуйне с
-                # i+1 до i + 1 + l, где l - длина подстроки после маркера, а t
-                # - сколько раз она повторяется
-
-                print('substr: {}, i={}, l={}, t={}, result={}'.format(
-                    seq[i + 1:i + 1 + l], i + 1, l, t, result))
                 result += t * get_len(seq, i + l + 1, i + 1)
                 marker = ''
                 i += l
         i += 1
-    return result + 1
+    return result
+
 
 # while seq.find('(') != -1:
 #    seq = decompress(seq)
