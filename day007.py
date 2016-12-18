@@ -1,4 +1,4 @@
-addresses = open('7.in').read().split('\n')[:-1]
+addresses = open('day007.in').read().split('\n')[:-1]
 
 def prepare(address):
     subseqs = [s.split(']') for s in address.split('[')]

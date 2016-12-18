@@ -1,6 +1,6 @@
 from functools import reduce
 
-raw = open('3.in').read()
+raw = open('day003.in').read()
 sides = [line.strip().split() for line in raw.split('\n')][:-1]
 
 def is_triangle(s):

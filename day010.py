@@ -1,7 +1,7 @@
 import re
 import time
 
-instructions = open('10.in').read().split('\n')[:-1]
+instructions = open('day010.in').read().split('\n')[:-1]
 
 bots = {}
 outputs = {}

@@ -1,6 +1,6 @@
 import re
 
-sequence = open('8.in').read().split('\n')[:-1]
+sequence = open('day008.in').read().split('\n')[:-1]
 
 wide = 50
 tall = 6

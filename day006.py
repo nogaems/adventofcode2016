@@ -1,4 +1,4 @@
-repeated = open('6.in').read().split('\n')[:-1]
+repeated = open('day006.in').read().split('\n')[:-1]
 entries = [[version[i] for version in repeated] for i in range(len(repeated[0]))]
 message1 = ''
 message2 = ''

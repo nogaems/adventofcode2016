@@ -1,6 +1,6 @@
 import re
 
-seq = open('9.in').read().split('\n')[0]
+seq = open('day009.in').read().split('\n')[0]
 
 
 def decompress(seq):

@@ -51,7 +51,7 @@ class Room:
         return result
 
 
-rooms = open('4.in').read()
+rooms = open('day004.in').read()
 rooms = rooms.split('\n')[:-1]
 
 result = 0
